@@ -1,0 +1,181 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, graphicx, float, geometry, fancyhdr, setspace, multicol}
+\usepackage{afterpage}
+\usepackage{lipsum}
+\usepackage{titlesec}
+\usepackage{parskip}
+% --- Configuración de márgenes y encabezado ---
+\geometry{
+    a4paper,
+    margin=2cm,
+    top=3cm,          % Margen superior reducido
+    headheight=2.5cm, % Altura del encabezado
+    headsep=0.5cm     % Espacio entre encabezado y texto
+}
+
+% --- Encabezado (todas las páginas) ---
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\includegraphics[width=1.8cm]{Logo_UTFSM.png}}
+\rhead{
+    \footnotesize 
+    Universidad Técnica Federico Santa María \\
+    Campus San Joaquín \\
+    Laboratorio de Física \\
+    Primer semestre 2026
+}
+
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \lhead{\includegraphics[width=1.8cm]{Logo_UTFSM.png}}
+    \rhead{\footnotesize Universidad Técnica Federico Santa María \\ Campus San Joaquín \\ Laboratorio de Física \\ Primer semestre 2026}
+}
+\titleformat{\section}
+  {\normalfont\Large\bfseries} 
+  {\thesection} 
+  {0.5em} 
+  {} 
+  [\titlerule] % Línea después del título
+% --- Ajuste del título (en una columna) ---
+\makeatletter
+\renewcommand{\maketitle}{%
+    \twocolumn[% % Inicia una sola columna temporal
+        \begin{center}
+            {\LARGE \bfseries \@title \par}
+            \vspace{0.5em}
+            {\large \@author \par}
+            \vspace{0.5em}
+            {\normalsize \@date \par}
+            \vspace{1em} % Espacio antes de iniciar las dos columnas
+        \end{center}
+    ]
+}
+\makeatother
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\title{\textbf{Interferencia y Difracción en Rendijas Simples y Dobles}}
+\author{ Gabriel Cifuentes Barraza, 22.078.757-5, gcifuentes@usm.cl, JUEVES 3-4.\\
+AWEONAO CULIAO ORTIZ, 2x.6xx.4xx-x, xxxx@usm.cl, JUEVES 3-4.}
+\date{}
+\maketitle
+
+\section*{1. Resumen}
+En esta experiencia se estudiaron los fenómenos ondulatorios de la luz mediante la difracción de Fraunhofer y la interferencia de Young. Utilizando un láser de longitud de onda nominal $\lambda = 650$ nm, rendijas simples y dobles, y midiendo los patrones proyectados en una pantalla , se determinaron experimentalmente los anchos de las rendijas ($b$) y la separación entre ellas ($a$). Mediante el análisis de las distancias a los mínimos de intensidad y las franjas de interferencia constructiva, se obtuvo un ancho de rendija experimental de $b = (0,103 \pm 0,002)$ mm y una separación de rendija doble de $a = (0,46 \pm 0,03)$ mm. Al contrastar estos resultados con los valores nominales entregados por el fabricante, se obtuvieron errores relativos del 2\% y 6\% y errores comparativos de $3$\% y $2$\% para $b$ y $a$ respectivamente, al ser valores bajos queda demostrado que este experimento puede describir de manera correcta la difracción de Fraunhofer y la interferencia de Young.
+
+\section*{2. Introducción teórica}
+\subsection*{Difracción de Fraunhofer}
+\justify
+La difracción de Fraunhofer se produce cuando los frentes de onda incidentes son paralelos y el fenómeno se observa a una distancia lejana del elemento difractor. En el caso de que la observación se realice a una distancia cercana al elemento difractor, los frentes de onda no serán planos, fenómeno que se conoce como difracción de Fresnel. 
+\justify
+Al considerar una rendija rectangular muy estrecha de ancho $b$ y largo $L$, de modo que se ignoran los efectos de los extremos y la onda incide de forma normal al plano de la rendija, se aplica el Principio de Huygens. Según este, todos los puntos de la abertura se convierten en fuentes de ondas secundarias (ondas difractadas). Observando estas ondas a diferentes ángulos $\theta$ respecto a la dirección de incidencia, la intensidad del patrón resultante es nula en las direcciones dadas por:
+\begin{equation}
+\frac{\pi b \sin(\theta)}{\lambda} = n\pi
+\end{equation}
+Donde $n = 1, 2, 3, \dots$ corresponde al número del mínimo de difracción. Geométricamente, el ángulo $\theta$ se relaciona con las distancias físicas del montaje. Si $x$ es la distancia desde el centro del patrón hasta el mínimo en la pantalla, y $L$ es la distancia desde la rendija hasta la pantalla, se forma un triángulo rectángulo donde $\sin(\theta) = \frac{x}{\sqrt{x^2+L^2}}$. Al reemplazar esto en la condición anterior y despejar la longitud de onda $\lambda$, se obtiene la siguiente relación:
+\begin{equation}
+\frac{b}{n} \cdot \frac{x}{\sqrt{x^2+L^2}} = \lambda
+\end{equation}
+Bajo la aproximación de campo lejano, donde la distancia a la pantalla es mucho mayor que la posición del mínimo ($L \gg x$), la hipotenusa del triángulo se aproxima simplemente a $L$. Esto simplifica la expresión a:
+\begin{equation}
+\frac{b}{n} \cdot \frac{x}{L} = \lambda
+\end{equation}
+
+\subsection*{Interferencia de Young}
+
+Considerando un sistema de dos rendijas de ancho $b$ con una separación $a$ medida de centro a centro, cada rendija se comporta como una fuente puntual secundaria. En la pantalla de observación, las contribuciones de ambas rendijas se superponen; aunque sus amplitudes son esencialmente iguales, pueden diferir significativamente en su fase debido a que las ondas no viajan distancias iguales para llegar al mismo punto. La diferencia de camino óptico $\delta$ está dada por:
+\begin{equation}
+\delta = r_2 - r_1 = a \sin(\theta)
+\end{equation}
+
+Esta expresión asume que los rayos provenientes de las dos rendijas son prácticamente paralelos, lo cual se cumple bajo la condición $L \gg a$. La condición para la formación de franjas brillantes o interferencia constructiva ocurre cuando la diferencia de camino es un múltiplo entero de la longitud de onda, expresado como:
+\begin{equation}
+\delta = a \sin(\theta) = m\lambda
+\end{equation}
+Por el contrario, la condición para franjas oscuras o interferencia destructiva se define por:
+\begin{equation}
+\delta = a \sin(\theta) = (2m+1)\frac{\lambda}{2}
+\end{equation}
+A partir de la geometría del sistema, sabemos que $\tan(\theta) = \frac{y}{L}$, donde $y$ es la posición lineal en la pantalla. Dado que $\theta$ es un ángulo pequeño, se cumple la aproximación $\tan(\theta) \approx \sin(\theta)$. Reemplazando esto en las condiciones anteriores, la posición lineal en la pantalla para los máximos viene dada por:
+\begin{equation}
+y_m = m \frac{\lambda L}{a}
+\end{equation}
+Y para los mínimos, la posición está dada por:
+\begin{equation}
+y_m = (2m+1)\frac{\lambda L}{2a}
+\end{equation}
+Finalmente, la distancia lineal constante $\Delta y$ entre dos máximos o dos mínimos consecutivos en la pantalla se puede calcular mediante la siguiente expresión:
+\begin{equation}
+\Delta y = \frac{\lambda L}{a}
+\end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{fotos/youn33.jpg}
+    \caption{Imagen Interferencia de Ondas de Young.}
+    \label{fig:placeholder}
+\end{figure}
+
+
+\section*{3. Desarrollo Experimental}
+El desarrollo experimental se dividió en dos etapas principales. En ambas se utilizó un láser de longitud de onda conocida ($\lambda = 650$ nm), soportes ópticos, placas con rendijas de dimensiones nominales conocidas proporcionadas por el fabricante, y una pared cubierta con papel milimetrado que funcionó como pantalla de proyección y medición.
+
+\subsection*{Montaje 1: Difracción de Fraunhofer}
+
+En esta etapa, se alineó el láser con una rendija simple de ancho $b$ nominal conocido. Se midió la distancia $L$ desde la rendija hasta la pared. Para el análisis del patrón proyectado, se midió la distancia lineal $x_n$ desde el centro del máximo central hasta los primeros tres mínimos de intensidad ($n=1, 2, 3$). Estas mediciones directas se realizaron utilizando el papel milimetrado, asumiendo un error instrumental de $\pm 0,5$ mm correspondiente a la mitad de su división mínima. Para el procesamiento de los datos, se utilizó la Ecuación (2), realizando el despeje algebraico necesario para calcular un valor de ancho de rendija $b$ independiente para cada uno de los tres mínimos medidos. Finalmente, para minimizar la incertidumbre de la medición empírica, se calculó el promedio aritmético de estos tres valores y su respectivo error aleatorio (estadístico), el cual fue reportado como el error final de la variable para luego contrastarlo con el valor nominal.
+
+\subsection*{Montaje 2: Interferencia de Young}
+
+Para el estudio del fenómeno de interferencia, se sustituyó el elemento difractor por una rendija doble de separación $a$ nominal conocida. Se registró la nueva distancia $L$ hacia la pared y, de manera análoga a la primera etapa, se midieron las posiciones $y_m$ desde el centro del máximo central hasta los distintos máximos brillantes de interferencia constructiva ($m=1, 2, 3$).Para trabajar estas variables, se realizó la inversión algebraica de la Ecuación (7), permitiendo determinar la separación experimental entre las rendijas. Con esta relación, se calculó un valor de $a$ independiente para cada orden $m$ medido. Posteriormente, se obtuvo el valor promedio de la separación de las rendijas dobles y se calculó su error aleatorio, lo que permitió establecer el intervalo de confianza de la medición. Finalmente, este resultado estadístico fue utilizado para calcular el error comparativo frente al valor nominal entregado por el fabricante.
+
+\section*{4. Resultados, análisis y discusión}
+\justify
+A partir de las mediciones realizadas sobre el papel milímetrado, fijando una distancia constante hacia la pantalla de $L = 2080,0 \pm 0,5$ mm y utilizando un láser rojo de longitud de onda $\lambda = 650$ nm, se tabularon las posiciones de los mínimos de difracción ($x_n$) y máximos de interferencia ($y_m$).
+
+Primero se hicieron las mediciones de los Mínimos de Difracción del montaje 1 ($x_n$) y se calculo el valor de b para cada n con la ecuacion (?):
+\begin{center}
+    \renewcommand{\arraystretch}{1.8}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{n} & \textbf{Mín. Difr: ($ x_n \pm 0.5$) mm} & \textbf{b (mm)} \\ \hline
+        1 & 13,0 & 0,104 \\ \hline
+        2 & 26,5 & 0,102 \\ \hline
+        3 & 39,0 & 0,102 \\ \hline
+    \end{tabular}
+    
+    \vspace{0.3cm} % Espacio entre la tabla y el texto
+    \small Tabla 1: Mediciones de Mínimos de difracción con su ancho b asociado.
+\end{center}
+
+Al promediar estos datos, se obtuvo el valor de $b$ = (0,103 ± 0,002)mm  donde su incertidumbre corresponde al error aleatorio de la medición. Al contrastar este resultado con el ancho nominal de $b_{nom}$ = 0,100 grabado en la rendija, se obtiene un error comparativo porcentual $\epsilon_c \%$ = 3\%. Ademas, se obtuvo un error relativo porcentual $\epsilon_R \%$ = 2\%.
+
+Luego, se hicieron las mediciones para el montaje de la interferencia de Young, donde se obtuvieron los Máximos de Interferencia ($y_m$) y sus valores de a asociados que se calcularon con la ecuacion (?'):
+\begin{center}
+    \renewcommand{\arraystretch}{1.8}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{n} & \textbf{Máx. Interf: ($\ y_m \pm 0.5$) mm} & \textbf{a (mm)} \\ \hline
+        1 & 3,0 & 0,45 \\ \hline
+        2 & 6,0 & 0,45 \\ \hline
+        3 & 8,5 & 0,48 \\ \hline
+    \end{tabular}
+
+     \vspace{0.3cm} % Espacio entre la tabla y el texto
+    \small Tabla 1: Mediciones de Máximos de Interferencia con su ancho a asociado.
+\end{center}
+
+
+\section*{5. Conclusión}
+
+
+
+\section*{6. Bibliografía}
+\begin{itemize}
+  \item 
+  \item 
+\end{itemize}
+
+
+\end{document}
