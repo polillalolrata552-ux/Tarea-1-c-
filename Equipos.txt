@@ -1,0 +1,15 @@
+4
+4 LosMejores
+Mario 1 20
+Luigi 0 10
+Peach 0 15
+Daisy 0 17
+3 Invencibles
+Sonic 1 25
+Shadow 0 10
+Tails 0 15
+2 Tormenta
+Pikachu 0 30
+Ash 1 20
+1 Super
+Super 0 60
